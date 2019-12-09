@@ -8,10 +8,10 @@ import java.util.Properties;
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class Config {
-    public static InputStream input;
-    public static Properties prop;
+    private static InputStream input;
+    private static Properties prop;
     private static Dotenv dotenv = Dotenv.load();
-    public static String path = dotenv.get("CONFIG_STRING");
+    private static String path = dotenv.get("CONFIG_STRING");
 
     public static List<String> getExclude() {
         try {
