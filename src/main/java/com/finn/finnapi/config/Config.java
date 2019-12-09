@@ -5,11 +5,13 @@ import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
+import io.github.cdimascio.dotenv.Dotenv;
 
 public class Config {
     public static InputStream input;
     public static Properties prop;
-    public static String path = "C:/Users/Phil Ka/Desktop/Coding/Java/finn-api-v2/src/main/java/com/finn/finnapi/config.properties";
+    private static Dotenv dotenv = Dotenv.load();
+    public static String path = dotenv.get("CONFIG_STRING");
 
     public static List<String> getExclude() {
         try {
