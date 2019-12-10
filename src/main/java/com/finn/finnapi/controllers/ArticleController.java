@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "http://localhost:8081")
 public class ArticleController extends Article {
 
-    @RequestMapping("/index")
+    @RequestMapping
     public List<Article> index() {
         return Article.getAll();
     }
@@ -24,7 +24,7 @@ public class ArticleController extends Article {
         return Article.getOne(id);
     }
 
-    @RequestMapping("/srap/{numberOfPagesToScrap}")
+    @RequestMapping("/scrap/{numberOfPagesToScrap}")
     public String updateArticles(@PathVariable("numberOfPagesToScrap") String numberOfPagesToScrap) {
         try {
             ScrapController.updateDB(new Integer(numberOfPagesToScrap)).stream().forEach(article -> {
